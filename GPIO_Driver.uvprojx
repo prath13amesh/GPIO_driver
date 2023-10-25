@@ -393,6 +393,18 @@
         </Group>
         <Group>
           <GroupName>user libraries</GroupName>
+          <Files>
+            <File>
+              <FileName>HAL_GPIO.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HAL_GPIO.c</FilePath>
+            </File>
+            <File>
+              <FileName>HAL_GPIO.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\HAL_GPIO.h</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>

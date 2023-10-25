@@ -3,6 +3,10 @@
 
 #include "stm32f10x.h"
 
+//STATES
+#define LOW		0
+#define HIGH	1
+
 //PORT NAMES
 #define PA   	GPIOA
 #define PB   	GPIOB
@@ -51,7 +55,7 @@ typedef struct
 	
 	uint32_t	pin;
 	
-	uint32_t	mode;
+	uint32_t	pinmode;
 	
 	uint32_t	mode_type;
 	
@@ -66,5 +70,13 @@ typedef struct
 //****************************************************//
 
 static void config_pin(GPIO_TypeDef *port, uint32_t PINNUMBER, uint32_t mode_type);
+
+static void config_pin_speed(GPIO_TypeDef *port, uint32_t PINNUMBER, uint32_t	speed, uint32_t pinmode);
+
+//****************************************************//
+//									GPIO USER FUNCTIONS
+void gpio_write(GPIO_TypeDef *port, uint32_t PINNUMBER, uint32_t state);
+void gpio_toggle(GPIO_TypeDef *port, uint32_t PINNUMBER);
+void gpio_init(GPIO_TYPE gpio_type);
 
 #endif
