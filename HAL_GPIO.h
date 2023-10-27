@@ -73,10 +73,22 @@ static void config_pin(GPIO_TypeDef *port, uint32_t PINNUMBER, uint32_t mode_typ
 
 static void config_pin_speed(GPIO_TypeDef *port, uint32_t PINNUMBER, uint32_t	speed, uint32_t pinmode);
 
+typedef enum
+{
+	RISING_EDGE,
+	FALLING_EDGE,
+	RISING_FALLING_EDGE
+}edge_select;
+
 //****************************************************//
 //									GPIO USER FUNCTIONS
 void gpio_write(GPIO_TypeDef *port, uint32_t PINNUMBER, uint32_t state);
 void gpio_toggle(GPIO_TypeDef *port, uint32_t PINNUMBER);
 void gpio_init(GPIO_TYPE gpio_type);
+//****************************************************//
+//								INTERRUPT FUNCTIONS
+void config_gpio_interrupt(GPIO_TypeDef *port, uint32_t PINNUMBER, edge_select edge);
+void enable_gpio_interrupt(uint32_t PINNUMBER, IRQn_Type irqNumber);
+void clear_gpio_interrupt(uint32_t PINNUMBER);
 
 #endif
